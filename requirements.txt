@@ -1,0 +1,32 @@
+# Data Processing
+pandas==2.1.4
+numpy==1.26.2
+openpyxl==3.1.2
+
+# Big Data Processing
+pyspark==3.5.0
+
+# Data Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.18.0
+
+# Database Connectivity
+sqlalchemy==2.0.23
+pymysql==1.1.0
+psycopg2-binary==2.9.9
+
+# Data Quality
+great-expectations==0.18.8
+
+# Jupyter
+jupyter==1.0.0
+jupyterlab==4.0.9
+ipykernel==6.27.1
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Testing
+pytest==7.4.3
