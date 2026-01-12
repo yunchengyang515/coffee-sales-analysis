@@ -52,7 +52,7 @@ def clean_data(df):
     numeric_cols = df_clean.select_dtypes(include=[np.number]).columns
     for col in numeric_cols:
         if df_clean[col].isnull().any():
-            df_clean[col].fillna(df_clean[col].median(), inplace=True)
+            df_clean[col] = df_clean[col].fillna(df_clean[col].median())
     
     # Fill categorical columns with mode or 'Unknown'
     categorical_cols = df_clean.select_dtypes(include=['object']).columns
@@ -60,9 +60,9 @@ def clean_data(df):
         if df_clean[col].isnull().any():
             mode_val = df_clean[col].mode()
             if len(mode_val) > 0:
-                df_clean[col].fillna(mode_val[0], inplace=True)
+                df_clean[col] = df_clean[col].fillna(mode_val[0])
             else:
-                df_clean[col].fillna('Unknown', inplace=True)
+                df_clean[col] = df_clean[col].fillna('Unknown')
     
     missing_after = df_clean.isnull().sum().sum()
     print(f"Handled {missing_before - missing_after} missing values")

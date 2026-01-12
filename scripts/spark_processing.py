@@ -191,8 +191,9 @@ def window_functions_example(df):
     # Use first numeric column
     numeric_col = numeric_cols[0]
     
-    # Create a window specification
-    window_spec = Window.orderBy(F.monotonically_increasing_id())
+    # Create a window specification - use existing column if available
+    # For demonstration purposes, we partition by all columns for a consistent row number
+    window_spec = Window.orderBy(*df.columns[:3] if len(df.columns) >= 3 else df.columns)
     
     # Add row number and rank
     df_windowed = df.withColumn("row_number", F.row_number().over(window_spec))

@@ -19,10 +19,18 @@ def load_config():
 
 def create_database_connection(config):
     """Create database connection using SQLAlchemy"""
+    import os
     db_config = config['database']
     
+    # Use environment variables for credentials if available, otherwise fall back to config
+    db_user = os.getenv('DB_USER', db_config['user'])
+    db_password = os.getenv('DB_PASSWORD', db_config['password'])
+    db_host = os.getenv('DB_HOST', db_config['host'])
+    db_port = os.getenv('DB_PORT', db_config['port'])
+    db_name = os.getenv('DB_NAME', db_config['database'])
+    
     # Example for PostgreSQL
-    connection_string = f"postgresql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
+    connection_string = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
     
     try:
         engine = create_engine(connection_string)

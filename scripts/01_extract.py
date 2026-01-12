@@ -55,9 +55,14 @@ def extract_data():
         print(f"  - {file.name}")
 
 
-if __name__ == "__main__":
+def main():
+    """Main extraction pipeline"""
     print("Coffee Sales Data Extraction")
     print("=" * 50)
     download_dataset()
     print("\n" + "=" * 50)
     extract_data()
+
+
+if __name__ == "__main__":
+    main()

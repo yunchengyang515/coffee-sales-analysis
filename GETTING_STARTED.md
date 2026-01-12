@@ -194,6 +194,16 @@ If you want to use PostgreSQL:
      user: "your_username"
      password: "your_password"
    ```
+   
+   **Security Best Practice**: For production use, store credentials in environment variables:
+   ```bash
+   export DB_USER=your_username
+   export DB_PASSWORD=your_password
+   export DB_HOST=localhost
+   export DB_PORT=5432
+   export DB_NAME=coffee_sales_db
+   ```
+   The scripts will use environment variables if available, falling back to config.yaml.
 
 4. **Create Schema**
    ```bash
