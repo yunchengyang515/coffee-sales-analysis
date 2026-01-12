@@ -1,0 +1,32 @@
+# Configuration for Coffee Sales Analysis Project
+
+data:
+  raw_data_path: "data/raw/"
+  processed_data_path: "data/processed/"
+  cleaned_data_path: "data/cleaned/"
+  
+  # Dataset source
+  kaggle_dataset: "ahmedmohamedibrahim1/coffee-shop-sales-dataset"
+  
+database:
+  # Database connection settings (update with your credentials)
+  host: "localhost"
+  port: 5432
+  database: "coffee_sales_db"
+  user: "postgres"
+  password: "your_password"
+  
+spark:
+  app_name: "CoffeeSalesAnalysis"
+  master: "local[*]"
+  driver_memory: "4g"
+  executor_memory: "4g"
+  
+analytics:
+  # Date range for analysis
+  start_date: "2023-01-01"
+  end_date: "2023-12-31"
+  
+  # Reporting settings
+  top_products_count: 10
+  top_customers_count: 20
